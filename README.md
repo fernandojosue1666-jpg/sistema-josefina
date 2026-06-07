@@ -1,4 +1,4 @@
-# Sistema Integral de Gestión U.E. "Josefina Pimentel"
+# IMPLEMENTACION DEL SOFTWARE PARA LA ELABORACION DE NOMINAS Y EXPEDIENTES DE LOS ESTUDIANTES EN LA UNIDAD EDUCATIVA “JOSEFINA PIMENTEL”
 
 ## Descripción General
 Plataforma orientada a la optimización administrativa y académica. El sistema centraliza la operatividad de la institución para garantizar la precisión en la nómina, el control detallado del expediente estudiantil y la eficiencia en la gestión institucional, eliminando la dispersión de información y los procesos manuales.

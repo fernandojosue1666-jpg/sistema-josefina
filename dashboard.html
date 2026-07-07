@@ -1,0 +1,60 @@
+<!-- dashboard.html simplificado -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .dashboard-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            width: 500px;
+            text-align: center;
+        }
+        .user-info { background: #f0f0f0; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .logout-btn { background: #dc3545; padding: 10px 30px; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .logout-btn:hover { background: #c82333; }
+        .rol-badge { display: inline-block; background: #764ba2; color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px; }
+        .menu-card { background: #f8f9fa; padding: 30px 40px; border-radius: 10px; cursor: pointer; transition: .3s; border: 2px solid transparent; width: 100%; max-width: 300px; margin: 0 auto; }
+        .menu-card:hover { border-color: #2a5298; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .menu-card .icon { font-size: 48px; display: block; }
+        .menu-card h4 { color: #1e3c72; margin: 5px 0; }
+        .menu-card p { color: #666; font-size: 12px; }
+        .menu-options { display: flex; justify-content: center; margin: 25px 0; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Sistema de Gestión de Personal</h1>
+        <h2>Unidad Educativa "Josefina Pimentel"</h2>
+        <div class="user-info" id="userInfo"></div>
+        <div class="menu-options">
+            <div class="menu-card" onclick="window.location.href='personal_crud.php'">
+                <span class="icon">👥</span>
+                <h4>Gestion Personal</h4>
+                <p>Agregar, editar y eliminar</p>
+            </div>
+        </div>
+        <button class="logout-btn" onclick="cerrarSesion()">Cerrar Sesión</button>
+    </div>
+    <script>
+        const usuario = JSON.parse(sessionStorage.getItem('usuarioActual'));
+        if (!usuario) window.location.href = 'index.html';
+        
+        document.getElementById('userInfo').innerHTML = `
+            <h3>Bienvenido, ${usuario.nombre}</h3>
+            <p><strong>Rol:</strong> <span class="rol-badge">${usuario.rol}</span></p>
+            <p><strong>Fecha de ingreso:</strong> ${new Date().toLocaleString()}</p>
+        `;
+        
+        function cerrarSesion() {
+            sessionStorage.removeItem('usuarioActual');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
